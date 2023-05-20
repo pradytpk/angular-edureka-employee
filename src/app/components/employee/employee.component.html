@@ -1,0 +1,77 @@
+<div>
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Employee ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Salary</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.employeeID }}</td>
+        <td>
+          <input
+            *ngIf="showEdit"
+            [(ngModel)]="employee.firstName"
+            type="text"
+            class="form-control"
+          />
+          <span *ngIf="!showEdit">{{ employee.firstName }}</span>
+        </td>
+        <td>
+          <input
+            *ngIf="showEdit"
+            [(ngModel)]="employee.lastName"
+            type="text"
+            class="form-control"
+          />
+          <span *ngIf="!showEdit">{{ employee.lastName }}</span>
+        </td>
+        <td>
+          <input
+            *ngIf="showEdit"
+            [(ngModel)]="employee.salary"
+            type="number"
+            class="form-control"
+          />
+          <span *ngIf="!showEdit">{{ employee.salary }}</span>
+        </td>
+        <td>
+          <input
+            *ngIf="showEdit"
+            [(ngModel)]="employee.dob"
+            type="date"
+            class="form-control"
+          />
+          <span *ngIf="!showEdit">{{ employee.dob | date }}</span>
+        </td>
+        <td>
+          <input
+            *ngIf="showEdit"
+            [(ngModel)]="employee.email"
+            type="email"
+            class="form-control"
+          />
+          <span *ngIf="!showEdit">{{ employee.email }}</span>
+        </td>
+        <td>
+          <button *ngIf="!showEdit" class="btn btn-primary" (click)="EditEmp()">
+            Edit
+          </button>
+          <button
+            *ngIf="showEdit"
+            class="btn btn-primary"
+            (click)="UpdateEmp()"
+          >
+            Update
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
