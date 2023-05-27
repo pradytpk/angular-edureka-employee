@@ -8,68 +8,27 @@
         <th scope="col">Salary</th>
         <th scope="col">DOB</th>
         <th scope="col">Email</th>
-        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employee of employees">
+      <tr *ngFor="let employee of employees" appColorHighlight>
         <td>{{ employee.employeeID }}</td>
         <td>
-          <input
-            *ngIf="showEdit"
-            [(ngModel)]="employee.firstName"
-            type="text"
-            class="form-control"
-          />
-          <span *ngIf="!showEdit">{{ employee.firstName }}</span>
+          <span>{{ employee.firstName }}</span>
         </td>
         <td>
-          <input
-            *ngIf="showEdit"
-            [(ngModel)]="employee.lastName"
-            type="text"
-            class="form-control"
-          />
-          <span *ngIf="!showEdit">{{ employee.lastName }}</span>
+          <span>{{ employee.lastName }}</span>
         </td>
         <td>
-          <input
-            *ngIf="showEdit"
-            [(ngModel)]="employee.salary"
-            type="number"
-            class="form-control"
-          />
-          <span *ngIf="!showEdit">{{ employee.salary }}</span>
+          <span>{{ employee.salary | currency }}</span>
         </td>
         <td>
-          <input
-            *ngIf="showEdit"
-            [(ngModel)]="employee.dob"
-            type="date"
-            class="form-control"
-          />
-          <span *ngIf="!showEdit">{{ employee.dob | date }}</span>
+          <span>
+            {{ employee.dob | date : "mediumDate" | uppercase }}
+          </span>
         </td>
         <td>
-          <input
-            *ngIf="showEdit"
-            [(ngModel)]="employee.email"
-            type="email"
-            class="form-control"
-          />
-          <span *ngIf="!showEdit">{{ employee.email }}</span>
-        </td>
-        <td>
-          <button *ngIf="!showEdit" class="btn btn-primary" (click)="EditEmp()">
-            Edit
-          </button>
-          <button
-            *ngIf="showEdit"
-            class="btn btn-primary"
-            (click)="UpdateEmp()"
-          >
-            Update
-          </button>
+          <span>{{ employee.email }}</span>
         </td>
       </tr>
     </tbody>

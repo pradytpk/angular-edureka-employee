@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IEmployee } from '../../Models/employee';
-
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -9,17 +8,8 @@ import { IEmployee } from '../../Models/employee';
 export class EmployeeComponent {
 
   public employees: IEmployee[] = [];
-  public showEdit: boolean = false;
 
-  EditEmp() {
-    this.showEdit = true;
-  }
-
-  UpdateEmp() {
-    this.showEdit = false;
-  }
   constructor() {
-
   }
   public ngOnInit(): void {
     this.employees = [
@@ -30,7 +20,16 @@ export class EmployeeComponent {
         salary: 5000,
         dob: new Date(1990, 5, 15),
         email: 'john.doe@example.com'
-      }
+      },
+      {
+        employeeID: 2,
+        firstName: 'Jane',
+        lastName: 'Smith',
+        salary: 6000,
+        dob: new Date(1992, 8, 25),
+        email: 'jane.smith@example.com'
+      },
     ]
   }
+
 }
