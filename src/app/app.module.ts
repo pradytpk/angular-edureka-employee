@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { FormsModule } from '@angular/forms';
 import { ColorHighlightDirective } from './directives/color.directive';
+import { NewemployeeComponent } from './components/newemployee/newemployee.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
-    ColorHighlightDirective
+    ColorHighlightDirective,
+    NewemployeeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
