@@ -18,8 +18,11 @@ export class NewemployeeComponent {
 
   getEmployees() {
     this.employeeService.getEmployees()
-      .subscribe(employees => this.employees = employees);
+      .subscribe(data => {
+        this.employees = data;
+      });
   }
+
 }
 
 

@@ -7,8 +7,8 @@ import { IEmployee2 } from '../Models/employee2'
   providedIn: 'root'
 })
 export class EmployeeService {
-  //private apiUrl = 'https://jsonplaceholder.typicode.com/users';
-  private apiUrl = '';
+  private apiUrl = 'https://dummy.restapiexample.com/api/v1/employees';
+  
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<IEmployee2[]> {
